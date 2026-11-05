@@ -81,7 +81,7 @@ jobs:
           crawl web_spider
           back
           target
-          set target http://VulnerableApp-facade/
+          set target http://vulnerableapp-facade/
           back
           start
           exit
