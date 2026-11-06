@@ -77,7 +77,7 @@ jobs:
           set output_file /w3af-out/w3af-raw.json
           back
           audit xss,sqli,lfi,os_commanding
-          crawl web_spider
+          crawl web_spider,sitemap_xml
           back
           target
           set target http://vulnerableapp-facade/
@@ -86,6 +86,7 @@ jobs:
           exit
           EOF
 
+          echo "test only: the sitemap w3af reads"; curl -s -H "Host: vulnerableapp-facade" http://localhost/sitemap.xml | head -c 1500 || true; echo
           W3AF_IMAGE="jones2748/docker-w3af:latest"
           docker pull "$W3AF_IMAGE"
 
